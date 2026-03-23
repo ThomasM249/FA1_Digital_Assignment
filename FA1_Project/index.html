@@ -1,71 +1,82 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>WordleCloneFA1</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wordel</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1 class="MainHeading"> Wordle Clone </h1>
-    <div class="GridSpacing">
-        <!-- First Row of Box -->
-        <div class="RowSpacing">
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-        </div>
-        <!-- Second Row of Box -->
-        <div class="RowSpacing">
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-        </div>
-        <!-- Third Row of Box --> 
-        <div class="RowSpacing">
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-        </div>
-        <!-- Fourth Row of Box --> 
-        <div class="RowSpacing">
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-        </div>
-        <!-- Fith Row of Box --> 
-        <div class="RowSpacing">
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-        </div>
-        <!-- Sixth Row of Box -->
-        <div class="RowSpacing">
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-            <div class="Boxes"></div>
-        </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <button class="btn-replay" id="replayBtn" onclick="replayGame()">&#8635; Replay</button>
     </div>
-    <p id="p1"></p>
-    <br></br> 
-    <div id="InputButton">
-    <input class="InputBox" type="text" id="guessInput" placeholder="Enter your Word Guess Here">
-    <br></br>
-    <button onclick="submitGuess()">Submit Letter Guess</button>
+    <div class="header-center">
+      <span class="header-title">Wordel</span>
+    </div>
+    <div class="header-right">
+      <button onclick="toggleSettings()">⚙</button>
+      <button class="btn-auth">Login</button>
+      <button class="btn-auth">Sign Up</button>
+    </div>
+  </header>
+
+  <div id="settingsPanel" class="hidden" style="position:fixed;top:61px;right:10px;font-size:0.85rem;">
+    <label><input type="checkbox" onchange="toggleDark(this)" /> Dark Mode</label>
+  </div>
+
+  <!-- LANDING PAGE -->
+  <div id="landingPage" class="landing">
+    <h1 class="landing-title">Wordel</h1>
+    <button class="btn-play" onclick="startGame()">Play</button>
+  </div>
+
+  <!-- GAME PAGE -->
+  <div id="gamePage" class="game-page hidden">
+
+    <div id="message" class="message"></div>
+
+    <!-- 6x5 Grid -->
+    <div class="grid" id="grid"></div>
+
+    <!-- Input -->
+    <div class="input-row">
+      <input
+        type="text"
+        id="guessInput"
+        class="guess-input"
+        maxlength="5"
+        placeholder="Enter Your Guess"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="characters"
+        spellcheck="false"
+      />
+      <button class="btn-submit" onclick="submitGuess()">Enter</button>
     </div>
 
-    <div>
-        <h1 id="LetterFromGuessTestOutput"> Test Output </h1>
+    <!-- On-screen Keyboard -->
+    <div class="keyboard" id="keyboard"></div>
+
+  </div>
+
+  <!-- END POPUP -->
+  <div id="endPopup" class="popup-overlay hidden">
+    <div class="popup-box">
+      <h2 id="popupTitle"></h2>
+      <p id="popupLine1"></p>
+      <p id="popupLine2"></p>
+      <p id="popupLine3"></p>
+      <div class="popup-buttons">
+        <button onclick="replayGame(); closePopup()">Replay</button>
+        <button>Login</button>
+        <button>Sign Up</button>
+      </div>
     </div>
-    <script src="script.js?v=1"></script>
+  </div>
+
+  <script src="Script.js"></script>
 </body>
 </html>

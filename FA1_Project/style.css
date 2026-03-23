@@ -1,42 +1,45 @@
-.MainHeading {
-    color: black;
-    font-size: xx-large;
-    padding-bottom: 15px;
-}
+.hidden { display: none !important; }
 
-.GridSpacing {
-    margin-top: 20px;
-}
+.header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid black; padding: 8px 12px; }
+.header-left, .header-right { display: flex; gap: 6px; align-items: center; flex: 1; }
+.header-right { justify-content: flex-end; }
+.header-center { flex: 1; text-align: center; font-size: 21px; }
 
-.RowSpacing {
-    margin-bottom: 5px;
-}
+button { background: white; color: black; border: 1px solid black; padding: 4px 10px; cursor: pointer; }
 
-.Boxes {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #000;
-    margin: 2px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    background-color: #fff;
-}
 
-.correct {
-    background-color: green !important;
-}
+.landing { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; height: 90vh; }
 
-.present {
-    background-color: yellow !important;
-}
+.game-page { display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 16px; gap: 14px; height: 90vh; }
+.message { height: 24px; text-align: center; }
 
-.absent {
-    background-color: gray !important;
-}
+.grid { display: grid; grid-template-columns: repeat(5, 52px); grid-template-rows: repeat(6, 52px); gap: 4px; }
+.tile { width: 52px; height: 52px; border: 1px solid black; display: flex; align-items: center; justify-content: center; font-size: 21px; text-transform: uppercase; }
+.tile.correct { background: #6aaa64; color: white; }
+.tile.present { background: #c9b458; }
+.tile.absent { background: #c4c4c4; }
 
-.InputBox {
-    width: 100px; 
-}
+.input-row { display: flex; gap: 6px; }
+.guess-input { border: 1px solid black; padding: 6px; font-size: 16px; width: 160px; text-align: center; text-transform: uppercase; }
+
+/* Keyboard add the colours to the keys before due */ 
+.keyboard { display: flex; flex-direction: column; gap: 4px; width: 480px; }
+.key-row { display: flex; gap: 3px; justify-content: center; }
+.key { width: 40px; height: 46px; border: 1px solid black; background: white; font-size: 13px; cursor: pointer; }
+.key.wide { width: 58px; font-size: 11px; }
+
+.popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.popup-box { background: white; border: 2px solid black; padding: 30px; text-align: center; width: 300px; pointer-events: all; }
+.popup-box h2 { font-size: 22px; margin-bottom: 10px; }
+.popup-box p { margin-bottom: 6px; }
+.popup-buttons { display: flex; gap: 8px; justify-content: center; margin-top: 14px; }
+
+/* Dark Mode Stuff Implement Keyboard Dark Mode Later */ 
+body.dark, body.dark .settings-panel, body.dark .popup-box { background: #111; color: white; }
+body.dark button, body.dark .key { background: #111; color: white; border-color: #555; }
+body.dark .header, body.dark .settings-panel { border-color: #444; }
+body.dark .tile { background: #111; color: white; border-color: #444; }
+body.dark .tile.correct { background: #6aaa64; }
+body.dark .tile.present { background: #c9b458; }
+body.dark .tile.absent { background: #555; color: white; }
+body.dark .guess-input { background: #111; color: white; border-color: #444; }
