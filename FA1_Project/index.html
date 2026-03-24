@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="header-left">
       <button class="btn-replay" id="replayBtn" onclick="replayGame()">&#8635; Replay</button>
@@ -27,21 +26,17 @@
     <label><input type="checkbox" onchange="toggleDark(this)" /> Dark Mode</label>
   </div>
 
-  <!-- LANDING PAGE -->
   <div id="landingPage" class="landing">
     <h1 class="landing-title">Wordel</h1>
     <button class="btn-play" onclick="startGame()">Play</button>
   </div>
 
-  <!-- GAME PAGE -->
   <div id="gamePage" class="game-page hidden">
 
     <div id="message" class="message"></div>
 
-    <!-- 6x5 Grid -->
     <div class="grid" id="grid"></div>
 
-    <!-- Input -->
     <div class="input-row">
       <input
         type="text"
@@ -57,12 +52,10 @@
       <button class="btn-submit" onclick="submitGuess()"> Submit Answer </button>
     </div>
 
-    <!-- On-screen Keyboard -->
     <div class="keyboard" id="keyboard"></div>
 
   </div>
 
-  <!-- END POPUP -->
   <div id="endPopup" class="popup-overlay hidden">
     <div class="popup-box">
       <h2 id="popupTitle"></h2>
