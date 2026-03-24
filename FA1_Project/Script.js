@@ -26,6 +26,7 @@ function initGame() {
   buildKeyboard();
 }
 
+/* Fr the Squares */
 function buildGrid() {
   idshort("grid").innerHTML = "";
   for (var r = 0; r < 6; r++)
@@ -38,7 +39,7 @@ function buildGrid() {
 }
 
 function buildKeyboard() {
-  var rows = [["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Enter","Z","X","C","V","B","N","M","⌫"]];
+  var rows = [["Q","W","E","R","T","Y","U","I","O","P"],["A","S","D","F","G","H","J","K","L"],["Z","X","C","V","B","N","M"]];
   idshort("keyboard").innerHTML = "";
   for (var i = 0; i < rows.length; i++) {
     var row = document.createElement("div");
@@ -47,7 +48,6 @@ function buildKeyboard() {
       var b = document.createElement("button");
       b.classList.add("key");
       b.textContent = rows[i][j];
-      if (rows[i][j] == "Enter" || rows[i][j] == "⌫") b.classList.add("wide");
       b.onclick = (function(l){ return function(){ handleKey(l); }; })(rows[i][j]);
       row.appendChild(b);
     }
